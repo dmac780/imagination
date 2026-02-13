@@ -287,7 +287,7 @@ const AnimationCycle = {
   /**
    * Animate the cycle - 60fps game loop with deltatime
    * @param {number} timestamp
-   * @returns {void}
+   * @returns {void}  
    */
   animate(timestamp) {
     const TARGET_FPS = 60;

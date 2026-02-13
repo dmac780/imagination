@@ -56,13 +56,13 @@
 
   
     <div class="site-logo">
-      <a href="../../">
+      <a href="../../" aria-label="Go to homepage">
         
 
         
           <!-- <span>Imagination Driver</span> -->
           <div class="logo-container">
-            <canvas id="pyramidCanvas" width="50" height="50"></canvas>
+            <canvas id="pyramidCanvas" width="50" height="50" aria-label="Imagination Driver logo"></canvas>
           </div>
         
       </a>
@@ -76,15 +76,15 @@
   <nav class="site-nav">
     
   
-    <a href="/about/" class="link nav-link" >about</a>
+    <a href="/about/"  class="link nav-link"  aria-label="about"  >about</a>
   
 
   
-    <a href="/work/" class="link nav-link" >work</a>
+    <a href="/work/"  class="link nav-link"  aria-label="work"  >work</a>
   
 
   
-    <a href="/blog/" class="link nav-link" >words</a>
+    <a href="/blog/"  class="link nav-link"  aria-label="words"  >words</a>
   
 
     
@@ -164,7 +164,7 @@
   <p>The DAW is designed for my production style mimicing FL Studio for sample based production, but also touching on how I mainly produce music and that's with a Akai MPC2000 and Akai S950. So things are intentionally simple, and rely on your skill as a sampler to chop dope shit and swing it proper. Aside from waveform editing (which i'm not supporting in this project right now), this tool is everything I need to make dope beats.</p>
 
 
-  <img src="/static/images/work/daw-content1.webp" alt="DAW Project Screenshot" class="content-image">
+  <img src="/static/images/work/daw-content1.webp" alt="Custom DAW interface showing MIDI timeline, drum pads, mixer channels, and waveform editor" class="content-image">
 
   <p>I didn't want to support VST, instead I wanted an VST-like ecosystem where I could translate VST functionality into a custom format for the DAW, which is just JS. I worked with LLMs to reverse engineer popular rack mount units like the 1176 classic limiters and the LA2A compressor for example. The hardware is not the same but the math practically is (most of it is known already), and the sound is similar but different resulting in a unique characteristic for the default plugins which is something I always look for in audio production chains.</p>
 
