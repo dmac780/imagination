@@ -23,17 +23,14 @@ const phase2Video = '/static/webm/space.webm';
 const letters   = 'IMAGINATION'.split('');
 const container = document.getElementById('imaginationContainer');
 
-// Create a single shared phase 2 video element (hidden, used as source)
+// Create a single shared phase 2 video element (in-memory, used as canvas drawing source)
 const sharedPhase2Video = document.createElement('video');
-sharedPhase2Video.id = 'sharedPhase2Video';
 sharedPhase2Video.src = phase2Video;
 sharedPhase2Video.autoplay = false;
 sharedPhase2Video.loop = true;
 sharedPhase2Video.muted = true;
 sharedPhase2Video.playsInline = true;
 sharedPhase2Video.preload = 'none'; // Don't preload until needed
-sharedPhase2Video.style.display = 'none';
-document.body.appendChild(sharedPhase2Video);
 
 
 /**
