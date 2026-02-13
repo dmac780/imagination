@@ -14,6 +14,16 @@ if (!canvas) {
     let isHovering = false;
     let rotationX  = 0;
     let rotationY  = 0;
+    let lastFrameTime = performance.now();
+    
+    // Target 60fps
+    const TARGET_FPS = 60;
+    const FRAME_TIME = 1000 / TARGET_FPS; // ~16.67ms
+    
+    // Rotation speeds in radians per second (not per frame)
+    const ROTATION_SPEED_X = 1.2; // radians/second (was 0.02 per frame at 60fps = 1.2 rad/s)
+    const ROTATION_SPEED_Y = 1.8; // radians/second (was 0.03 per frame at 60fps = 1.8 rad/s)
+    const EASE_SPEED = 0.0006;    // easing factor per second (was 0.00001 per frame at 60fps)
 
     const vertices = [
         [0, 12, 0],       // 0: apex
@@ -91,15 +101,29 @@ if (!canvas) {
         });
     }
 
-    function animate() {
+    function animate(timestamp) {
+        if (!timestamp) timestamp = performance.now();
+        
+        const deltaTime = timestamp - lastFrameTime;
+        
+        // Throttle to 60fps - only update if enough time has passed
+        if (deltaTime < FRAME_TIME) {
+            requestAnimationFrame(animate);
+            return;
+        }
+        
+        // Update lastFrameTime, accounting for any overflow
+        lastFrameTime = timestamp - (deltaTime % FRAME_TIME);
+        
+        // Convert deltaTime to seconds for frame-rate independent movement
+        const deltaSeconds = deltaTime / 1000;
+        
         if (isHovering) {
-            rotationX += 0.02;
-            rotationY += 0.03;
+            rotationX += ROTATION_SPEED_X * deltaSeconds;
+            rotationY += ROTATION_SPEED_Y * deltaSeconds;
         } else {
-            const easeSpeed = 0.00001;
-
-            rotationX += (0 - rotationX) * easeSpeed;
-            rotationY += (0 - rotationY) * easeSpeed;
+            rotationX += (0 - rotationX) * EASE_SPEED * deltaSeconds;
+            rotationY += (0 - rotationY) * EASE_SPEED * deltaSeconds;
             
             // Stop when very close to prevent micro-movements
             if (Math.abs(rotationX) < 0.0001) rotationX = 0;

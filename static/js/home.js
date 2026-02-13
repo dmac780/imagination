@@ -162,16 +162,28 @@ observer.observe(document.documentElement, {
   attributeFilter: ['data-theme']
 });
 
-// Canvas rendering for shared video
+// Canvas rendering for shared video - throttled to 60fps
 let animationFrameId = null;
-function renderSharedVideoToCanvases() {
-  const canvases = document.querySelectorAll('.phase2-video');
-  canvases.forEach(canvas => {
-    const ctx = canvas.getContext('2d');
-    if (sharedPhase2Video.readyState >= 2) { // HAVE_CURRENT_DATA or better
-      ctx.drawImage(sharedPhase2Video, 0, 0, canvas.width, canvas.height);
-    }
-  });
+let lastVideoRenderTime = 0;
+const VIDEO_FRAME_TIME = 1000 / 60; // Target 60fps for video rendering
+
+function renderSharedVideoToCanvases(timestamp) {
+  if (!timestamp) timestamp = performance.now();
+  
+  const deltaTime = timestamp - lastVideoRenderTime;
+  
+  // Only render if enough time has passed (throttle to 60fps)
+  if (deltaTime >= VIDEO_FRAME_TIME) {
+    lastVideoRenderTime = timestamp - (deltaTime % VIDEO_FRAME_TIME);
+    
+    const canvases = document.querySelectorAll('.phase2-video');
+    canvases.forEach(canvas => {
+      const ctx = canvas.getContext('2d');
+      if (sharedPhase2Video.readyState >= 2) { // HAVE_CURRENT_DATA or better
+        ctx.drawImage(sharedPhase2Video, 0, 0, canvas.width, canvas.height);
+      }
+    });
+  }
   
   if (sharedPhase2Video && !sharedPhase2Video.paused) {
     animationFrameId = requestAnimationFrame(renderSharedVideoToCanvases);
@@ -273,20 +285,29 @@ const AnimationCycle = {
 
 
   /**
-   * Animate the cycle
+   * Animate the cycle - 60fps game loop with deltatime
    * @param {number} timestamp
    * @returns {void}
    */
   animate(timestamp) {
-
-    const deltaTime    = timestamp - this.lastFrameTime;
-    this.lastFrameTime = timestamp;
+    const TARGET_FPS = 60;
+    const FRAME_TIME = 1000 / TARGET_FPS; // ~16.67ms per frame
+    
+    const deltaTime = timestamp - this.lastFrameTime;
+    
+    // Throttle to 60fps - only update if enough time has passed
+    if (deltaTime < FRAME_TIME) {
+      this.animationFrameId = requestAnimationFrame((ts) => this.animate(ts));
+      return;
+    }
+    
+    // Update lastFrameTime, accounting for any overflow
+    this.lastFrameTime = timestamp - (deltaTime % FRAME_TIME);
     
     // Clamp deltaTime to prevent huge jumps when tab was hidden
     // If delta is > 100ms, assume we were paused and don't accumulate time
-    if (deltaTime < 100) {
-      this.accumulatedTime += deltaTime;
-    }
+    const clampedDelta = deltaTime < 100 ? deltaTime : 0;
+    this.accumulatedTime += clampedDelta;
     
     const phase = this.phases[this.currentPhase];
     
