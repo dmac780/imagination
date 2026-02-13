@@ -52,10 +52,10 @@ letters.forEach((letter, index) => {
 
   // SVG mask for all elements
   const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
       <text
         x="50%"
-        y="75%"
+        y="82%"
         text-anchor="middle"
 font-family="monospace, sans-serif"
 font-size="280"
