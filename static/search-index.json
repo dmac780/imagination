@@ -1,0 +1,96 @@
+{
+  "generated": "2026-02-13T00:30:39.517Z",
+  "totalItems": 7,
+  "items": [
+    {
+      "title": "DAW",
+      "url": "/work/daw/",
+      "excerpt": "MIDI production focused DAW built from scratch using HTML, CSS, and JavaScript.",
+      "content": "Project Overview This is a MIDI production focused DAW I built from scratch using HTML, CSS, and JavaScript. I eventually evolved it with a bunch of node functionality to get around some CORS bullshit, as always. I have thousands of hours working with DAWs for audio production, so making something like this is comes pretty natural to me. The DAW is designed for my production style mimicing FL Studio for sample based production, but also touching on how I mainly produce music and that's with a Ak...",
+      "type": "work",
+      "date": "2026-02-09",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js"
+      ]
+    },
+    {
+      "title": "SP1200 Emulator",
+      "url": "/work/sp1200/",
+      "excerpt": "Web-based SP1200 audio emulator.",
+      "content": "Project Overview Web-based SP-1200 audio emulator that recreates the distinctive sound characteristics of the legendary E-mu SP-1200 drum machine and sampler, which was iconic in hip-hop's golden era. Well not exactly the same because it's missing the iconic hardware, but very close, closer than any VST/bitcrusher can achieve as those just add noise and filters. The principal is still very sound. Sample at a faster RPM into the machine, slow it back down to original speed and your stuff is not o...",
+      "type": "work",
+      "date": "2026-02-09",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Web Audio API"
+      ]
+    },
+    {
+      "title": "DSSG",
+      "url": "/work/dssg/",
+      "excerpt": "A lightweight, flexible static site generator built with Node.js.",
+      "content": "Project Overview DSSG (DMAC Static Site Generator) is a modern, minimalist static site generator built with native node libs. It combines simplicity with powerful features, allowing developers to create fast, maintainable websites with minimal configuration. The website you are currently on is built with DSSG. This is my third website built with DSSG, and every project is slightly different resulting in me determining if I should incorporate features into the generator or not. So far so good, bu...",
+      "type": "work",
+      "date": "2026-02-08",
+      "tags": [
+        "Node.js",
+        "SSG",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "title": "Hellemoji",
+      "url": "/work/hellemoji/",
+      "excerpt": "Top-down 2D twin-stick shooter where you play as a potato defending the world from waves of emojis and other meme brainrot.",
+      "content": "Project Overview Hellemoji is a top-down 2D twin-stick shooter where you play as a potato defending the world from waves of emojis and other meme brainrot. It's a very diffcult game, think robotron but faster pace with projectiles and explosions. It has rougelike elements within the campaign, but full on build crafting for survival and sandbox modes. The build crafting is very deep, for example,you can make healing builds, spam rocket builds, dash based builds, glass cannon builds, augment how e...",
+      "type": "work",
+      "date": "2026-02-08",
+      "tags": [
+        "Electron.js",
+        "JavaScript",
+        "CSS",
+        "Web Audio API"
+      ]
+    },
+    {
+      "title": "BOOMER.3",
+      "url": "/work/boomer3/",
+      "excerpt": "THREE.js FPS engine.",
+      "content": "Project Overview BOOMER.3 is a retro-inspired first-person shooter engine I built in THREE.js and JavaScript. It is optimized to run at high FPS in the browser, maintaining 60FPS delta-time and scaling smoothly above 240FPS. The engine can run a full FPS arena shooter entirely client-side, with no server required. It works on GitHub Pages or Cloudflare for free with unlimited bandwidth, though multiplayer and backend features are not included. Right now the gameplay uses placeholder PD models an...",
+      "type": "work",
+      "date": "2026-01-15",
+      "tags": [
+        "THREE.js",
+        "JavaScript",
+        "Web Audio API",
+        "Game Engine"
+      ]
+    },
+    {
+      "title": "Hello World",
+      "url": "/blog/hello-world/",
+      "excerpt": "Some thoughts on some things.",
+      "content": "This is the first post on the website. Cool. I always wanted a blog, but like... no one reads blogs. Not even me. I guess I like the \"idea\" of a blog more than actually having one. I plan on using this space to dump a bunch of information I've accumulated under many moons, whenever I get the time and itch to do so. MPC production tips and tricks, programming concepts, shitposting opinions on the web industry, AI slop, etc. Not an SEO blog. I have no plans on optimizing this site for organic traf...",
+      "type": "blog",
+      "date": "2026-01-09",
+      "tags": [
+        "blog"
+      ]
+    },
+    {
+      "title": "About",
+      "url": "/about/",
+      "excerpt": "About the website",
+      "content": "Imagination Driver is a personal site and development portfolio focused on experiments, projects, and writing around web development, design, systems, and creative technology. It serves as a living record of ideas in progress, technical exploration, and tools built with an emphasis on clarity, usability, and intentional design. Opinions here are my own. Origin Imagination Driver grew out of repetition, dedication, and the need to understand things by taking them apart and rebuilding them. It cam...",
+      "type": "page",
+      "date": null,
+      "tags": []
+    }
+  ]
+}
