@@ -127,11 +127,13 @@ article p em {
   text-decoration: none;
 }
 
+.content-card-link h2,
 .content-card-link h3 {
   color: var(--color-primary);
   transition: color 0.2s ease;
 }
 
+.content-card:hover .content-card-link h2,
 .content-card:hover .content-card-link h3 {
   color: var(--color-accent);
 }
