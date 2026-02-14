@@ -495,15 +495,18 @@ const AnimationCycle = {
   
 
   /**
-   * Show driver clouds
+   * Show driver clouds (cross-fade from white text to cloud)
    * @returns {void}
    */
   showDriverClouds() {
     const driverText  = document.querySelector('.driver-text');
     const driverCloud = document.querySelector('.driver-cloud');
     
-    driverText.style.opacity  = '0';
-    driverCloud.style.opacity = '1';
+    // Cross-fade: white text fades out, cloud fades in
+    requestAnimationFrame(() => {
+      driverText.style.opacity  = '0';
+      driverCloud.style.opacity = '1';
+    });
 
     if (!driverCloud.classList.contains('active')) {
       driverCloud.classList.add('active');
@@ -512,20 +515,23 @@ const AnimationCycle = {
 
 
   /**
-   * Show driver text
+   * Show driver text (cross-fade from cloud to white text)
    * @returns {void}
    */
   showDriverText() {
     const driverText  = document.querySelector('.driver-text');
     const driverCloud = document.querySelector('.driver-cloud');
     
-    driverCloud.style.opacity = '0';
-    driverText.style.opacity  = '1';
+    // Cross-fade: cloud fades out, white text fades in
+    requestAnimationFrame(() => {
+      driverCloud.style.opacity = '0';
+      driverText.style.opacity  = '1';
+    });
   },
 
 
   /**
-   * Hide driver text and cloud
+   * Hide driver text and cloud (fade both out)
    * @returns {void}
    */
   hideDriver() {
@@ -533,8 +539,11 @@ const AnimationCycle = {
     const driverCloud   = document.querySelector('.driver-cloud');
     const driverTagline = document.querySelector('.driver-tagline');
     
-    driverCloud.style.opacity = '0';
-    driverText.style.opacity  = '0';
+    // Fade both out
+    requestAnimationFrame(() => {
+      driverCloud.style.opacity = '0';
+      driverText.style.opacity  = '0';
+    });
     
     const chars = driverTagline.querySelectorAll('span');
     chars.forEach(char => {
@@ -544,11 +553,11 @@ const AnimationCycle = {
 
 
   /**
-   * Show driver text and cloud back in
+   * Show driver text and cloud back in (cross-fade cloud out, white text in)
    * @returns {void}
    */
   showDriverFadeIn() {
-    const driverText   = document.querySelector('.driver-text');
+    const driverText    = document.querySelector('.driver-text');
     const driverCloud   = document.querySelector('.driver-cloud');
     const driverTagline = document.querySelector('.driver-tagline');
     
@@ -557,8 +566,11 @@ const AnimationCycle = {
       char.style.opacity = '0';
     });
     
-    driverText.style.opacity  = '1';
-    driverCloud.style.opacity = '0';
+    // Cross-fade: cloud fades out, white text fades in
+    requestAnimationFrame(() => {
+      driverText.style.opacity  = '1';
+      driverCloud.style.opacity = '0';
+    });
   }
 };
 
